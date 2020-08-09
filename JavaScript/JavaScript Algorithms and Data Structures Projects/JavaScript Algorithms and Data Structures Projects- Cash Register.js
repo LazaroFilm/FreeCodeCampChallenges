@@ -1,6 +1,13 @@
 function checkCashRegister(price, cash, cid) {
-  var change;
-  return "hello world!";
+  let due = price - cash;
+  let change = [];
+
+  for (let bills = cid.length; bills >= 0; bills--) {
+    console.log(cid[bills]);
+    
+  }
+
+  return due;
 }
 
 console.log(checkCashRegister(19.5, 20, [
