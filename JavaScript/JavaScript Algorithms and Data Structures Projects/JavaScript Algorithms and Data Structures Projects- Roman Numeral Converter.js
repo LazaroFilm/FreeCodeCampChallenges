@@ -7,7 +7,6 @@ function convertToRoman(num) {
   // for (let i = 0; i < digit.length; i++) {
   //   console.log(digit[i] + " = " + roman[i]);
   // }
-++++
   for (let i = 0; i < digit.length; i++) {
     while (num >= digit[i]) {
       answer += roman[i]
