@@ -1,30 +1,60 @@
 function checkCashRegister(price, cash, cid) {
-  let due = price - cash;
-  let change = [];
-
-  for (let bills = cid.length; bills >= 0; bills--) {
-    console.log(cid[bills]);
-    
+  const value = {
+    "ONE HUNDRED": 10000,
+    "TWENTY": 2000,
+    "TEN": 1000,
+    "FIVE": 500,
+    "ONE": 100,
+    "QUARTER": 25,
+    "DIME": 10,
+    "NICKEL": 5,
+    "PENNY": 1
   }
+  let due = cash * 100 - price * 100;
+  let answer = {
+    status: null,
+    change: []
+  };
 
-  return due;
-}
+  for (let bid = cid.length - 1; bid >= 0; bid--) {
+    let bill = cid[bid];
+    let amount = 0;
+    let billAvailable = bill[1] * 100
+    while (due >= value[bill[0]] && billAvailable >= value[bill[0]]) {
+      billAvailable -= value[bill[0]];
+      due -= value[bill[0]];
+      amount += value[bill[0]];
+    }
+    if (billAvailable == 0) {
+      answer.status = "CLOSED";
+    } else {
+      answer.status = "OPEN"
+    };
+    if (amount > 0) {
+      answer.change.push([bill[0], amount / 100]);
+    }
+  }
+  if (due > 0) {
+    return {
+      status: "INSUFFICIENT_FUNDS",
+      change: []
+    };
+  } else if (answer.status == "CLOSED") {
+    answer.change = cid;
+  }
+  return answer;
+};
 
-console.log(checkCashRegister(19.5, 20, [
-  ["PENNY", 1.01],
-  ["NICKEL", 2.05],
-  ["DIME", 3.1],
-  ["QUARTER", 4.25],
-  ["ONE", 90],
-  ["FIVE", 55],
-  ["TEN", 20],
-  ["TWENTY", 60],
-  ["ONE HUNDRED", 100],
-]));
-
-//take price - cash = due
-//then look into cid (cash in drawer) and see how to return the change due. 
-//start with the biggest bills and go down. 
-//if we run out of large bills, go to smaller ones
-//at the end check how much left in cid. if we have the exact change or more -> status closed
-//if we are too short to return the change -> status open 
+console.log(
+  checkCashRegister(19.5, 20, [
+    ["PENNY", 0.5],
+    ["NICKEL", 0],
+    ["DIME", 0],
+    ["QUARTER", 0],
+    ["ONE", 0],
+    ["FIVE", 0],
+    ["TEN", 0],
+    ["TWENTY", 0],
+    ["ONE HUNDRED", 0]
+  ])
+);

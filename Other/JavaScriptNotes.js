@@ -30,8 +30,8 @@ https: //regexr.com/
 
 //Arrays are organized and can be called by position #
 arr.push() //[0, 0, +]
-arr.pop() //[0, 0, –]
-arr.shift() //[–, 0, 0]
+arr.pop() //[0, 0, -]
+arr.shift() //[-, 0, 0]
 arr.unshift() //[+, 0, 0]
 arr.splice(index, number, "items") //removes selected and add items !!!Mutates the original aray!!!
 arr.slice(first, last + 1) //keeps selected. No arguments copies whole array !does not mutate the original array!
