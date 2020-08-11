@@ -41,7 +41,7 @@ arr1.concat(arr2) // merges tht two arrays into one
 //...arr //returns the entire array.
 obj.map(x => x * 2) //returns a new array with each value processed (x*2)
 obj.filter(x => x > 6); //returns a new array with values if true.
-obj.reduce(accumulation, item, index, array) =>
+obj.reduce(accumulation, item, index, array)
 arr.sort(function(a, b) {
   return a === b ? 0 : a < b ? -1 : 1;
 });
