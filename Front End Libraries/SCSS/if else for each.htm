@@ -1,0 +1,53 @@
+<style type='text/scss'>
+  /* mixin with @if @else if and @else */
+  @mixin border-stroke($val) {
+      @if $val == light {
+        border: 1px solid black;
+      }
+      @else if $val == medium {
+        border: 3px solid black;
+      }
+      @else if $val == heavy {
+        border: 6px solid black;
+      }
+      @else {
+        border: none;
+      }
+    }
+  /* @for  */
+  @for $i from 1 to 6 {
+    .text-#{$i} {
+      font-size: 15*$i;
+    }
+  }
+  /* @each without map and with map  */
+  @each $color in blue, red, green {
+  .#{$color}-text {color: $color;}
+  }
+
+  $colors: (color1: blue, color2: red, color3: green);
+
+  @each $key, $color in $colors {
+    .#{$color}-text {color: $color;}
+  }
+
+  /* @while, initialise a value before and increment it within.  */
+  while
+  $i: 1;
+  @while $i <= 5 {
+      .text-#{$i} {
+        font-size: 15px*$i;
+      }
+      $i: $i + 1;
+    }
+
+
+  #box {
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    @include border-stroke(medium);
+  }
+</style>
+
+<div id="box"></div>
