@@ -5,10 +5,22 @@
   border: 0;
   padding: 0;
   text-decoration: none;
+  font-family: sans-serif;
 }
 
-html {
+body {
   background-color: #071013;
+  color: #e0e2db;
+}
+
+a:link {
+  color: #3a7080;
+}
+a:visited {
+  color: #346371;
+}
+a:hover {
+  color: #47899d;
 }
 
 @media only screen and (max-width: 600px) {
@@ -34,10 +46,9 @@ html {
   float: right;
   padding: 14px 0;
   list-style-type: none;
-  font-family: sans-serif;
 }
 
-#navbar-item :hover {
+#navbar-item:hover {
   background-color: #e6af2e;
   text-decoration: none;
 }
@@ -50,25 +61,33 @@ html {
 
 /* ===SECTIONS=== */
 
+/* ==WELCOME== */
 #welcome-section {
   height: 100vh;
   text-align: center;
   background-color: #427aa1;
+  color: #e0e2db;
 }
 #welcome-section > div {
   padding-top: 50vh;
-  color: #e0e2db;
 }
 #welcome-section > h1 {
   text-align: center;
 }
 
+/* ==PROJECTS== */
 #projects {
-  height: 100vh;
-  background-color: orange;
+  height: 50vh;
+  padding-top: 50vh;
+  text-align: center;
+  color: #071013;
+  background-color: #e6af2f;
 }
 
+/* ==CONTACT== */
 #contact {
-  height: 100vh;
-  background-color: lightcoral;
+  height: 50vh;
+  padding-top: 50vh;
+  text-align: center;
+  background-color: #437aa2;
 }
