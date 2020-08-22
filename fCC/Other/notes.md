@@ -17,7 +17,7 @@ const JSX = (
 ```
 
 ```JSX
-ReactDOM.render(JSXelement, document.getElementById("HTMLid"));
+ReactDOM.render(jsxElement, document.getElementById("HTMLid"));
 ReactDOM.render(<ReactComponent />, document.getElementById("HTMLid"));
 ```
 
