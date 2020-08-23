@@ -48,6 +48,8 @@ const ChildComponent = () => {
 };
 ```
 
+- Using an arrow function allows you to not have to `bind()` it.​ :thumbsup: but they have some compatibility issues (:rage: IE) and other issues :warning:
+
 ---
 
 ## React component
@@ -57,11 +59,11 @@ class MyOtherComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "freeCodeCamp", //call {this.state.name}
+      name: "freeCodeCamp", //state, call with {this.state.name}
     };
   }
   render() {
-    const name = this.state.name; //call {name}
+    const name = this.state.name; //prop, call with {name}
     function newFunction(something) {
       return `This is: ${something}`;
     }
@@ -127,16 +129,16 @@ To update the state use this:
 
 ```JSX
 this.setState((state, props) => ({
-  counter: state.counter + props.increment,
+  counter: this.state.counter + props.increment,
 }));
 this.setState((state) => ({
-  counter: state.counter + 1,
+  counter: this.state.counter + 1,
 }));
 ```
 
 ---
 
-put that in the `constructor`, under `super`:
+put that in the `constructor`, under `super` to access it:
 
 ```JSX
 this.handleClick = this.handleClick.bind(this);
@@ -160,9 +162,7 @@ setTimeout(() => {
 });
 ```
 
----
-
-Inline styling JSX:
+## Inline styling with JSX
 
 ```JSX
 <div style={{ color: "yellow", fontSize: 16 }}>Mellow Yellow</div>
@@ -170,8 +170,24 @@ Inline styling JSX:
 
 camelCase used instead of kebab-case and double `{{}}`
 
+---
+
 ```JSX
 {condition && <p>markup</p>}
 ```
 
 if condition `true`, markup will display in DOM.
+
+---
+
+You can use `if/else` in the `render()` method, before `return(`.
+
+---
+
+You can use ternary operator right in `retrun`.
+
+```jsx
+cond ? doThis : doThat;
+```
+
+---
