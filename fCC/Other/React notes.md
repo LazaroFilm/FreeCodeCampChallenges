@@ -144,6 +144,8 @@ put that in the `constructor`, under `super` to access it:
 this.handleClick = this.handleClick.bind(this);
 ```
 
+or use an arrow function (fuck IE)
+
 Lifecycle hooks
 
 ```JSX
@@ -191,3 +193,34 @@ cond ? doThis : doThat;
 ```
 
 ---
+
+You can use Map to create a JSX item per attribute in an array like this? 
+
+```jsx
+const items = this.state.toDoList.map(x => <li>{x}</li>)
+```
+
+You can also user `array.filter()` to select the attributes you want to show in your `array.map()` 
+
+## Render on the Server
+
+You can render the first page on the server so you get a HTML page that loads faster at first with your website;s structure ready. Then you load your React components into it. 
+
+```jsx
+ReactDOMServer.renderToString(<App/>)
+```
+
+## Start a React project
+
+In terminal to setup. In your project folder,
+
+- initialize `npm init`
+
+-  create react app `npx create-react-app my-app` 
+
+Snippet `rcc` + <kbd>tab </kbd> create a Class Component Skeleton
+
+***
+
+`event.preventDefault()` stops the page from reloading after submitting to DB. ??? look more into this. 
+
