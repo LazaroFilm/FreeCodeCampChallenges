@@ -32,18 +32,18 @@ Go to [regExr](https://regexr.com/)
 Arrays are organized and can be called by position #
 
 | function                                                     | return                                                       |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `arr.push()`                                                 | [0, 0, +]                                                    |
-| `arr.pop()`                                                  | [0, 0, -]                                                    |
-| `arr.shift()`                                                | [-, 0, 0]                                                    |
-| `arr.unshift`                                                | [+, 0, 0]                                                    |
-| `arr.splice(index, number, "items")`                         | removes selected and add items !!!Mutates the original array!!! |
-| `arr.slice(first, last + 1)`                                 | keeps selected. No arguments copies whole array !does not mutate the original array! |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| `arr.push()`                                                 | [0, 0, +] \(mutates array)                                   |
+| `arr.pop()`                                                  | [0, 0, -] \(mutates array)                                   |
+| `arr.shift()`                                                | [-, 0, 0] \(mutates array)                                   |
+| `arr.unshift`                                                | [+, 0, 0] \(mutates array)                                   |
+| `arr.splice(index, number, "items")`                         | [removes selected and add items (mutates array)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) |
+| `arr.slice(first, last + 1)`                                 | keeps selected. No arguments copies whole array (returns new array) |
 | `arr.indexOf('value')`                                       | returns pos # or - 1 if none                                 |
 | `arr.includes('value')`                                      | returns true/false                                           |
-| `arr1.concat(arr2)`                                          | merges tht two arrays into one                               |
-| `...arr`                                                     | returns the entire array.                                    |
-| `obj.map(x => x`                                             | Arrays are organized and can be called by position #         |
+| `arr1.concat(arr2)`                                          | merges tht two arrays into one (returns new array)           |
+| `...arr`                                                     | Spread operator returns the entire array. (returns new array) |
+| `obj.map?????????????`                                       | Arrays are organized and can be called by position #         |
 | `arr.map(x => x * 2)`                                        | returns a new array with each value processed (x\*2)         |
 | `obj.filter(x => x > 6);`                                    | returns a new array with values if true.                     |
 | `obj.reduce(accumulation, item, index, array)`               |                                                              |
@@ -111,6 +111,17 @@ do {
   i++;
 } while (i <= 10);
 ```
+
+### Object assign
+
+```js
+Object.assign(target, source1, source2, ...)
+Object.assign({}, obj1, obj2)
+```
+
+takes the `target` and adds/replaces the values in the object with the sources. 
+
+If you make the target as `{}`, it will return a new array without mutating the original one. 
 
 ## ternary operator
 
