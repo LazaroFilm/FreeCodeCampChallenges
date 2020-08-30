@@ -118,8 +118,14 @@ doThis() {
   this.setState({key: newValue})
  };
 
+handleChange = (event) => {
+  this.setState({
+    input: event.target.value
+  });
+}
+
 <button onClick={this.doThis}>Click Me!</button>
-<input value={this.thing} onChange={this.doThis} />
+<input value={this.state.input} onChange={this.handleChange} />
 <form onSubmit={this.doThis}><button type='submit'>Submit</button></form>
 ```
 
