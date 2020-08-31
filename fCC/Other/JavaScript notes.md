@@ -142,3 +142,39 @@ str.toLowerCase(); //guess what this does...
 str.toUpperCase(); //I Mean, You Know...
 ```
 
+## JavaScript and HTML
+
+* JavaScript can be written inside a HTML document inside `<script> </script>` tags.
+
+* JS can change the content of an HTML element:
+
+  ```js
+  document.getElementById("demo").innerHTML = "Hello JavaScript!";
+  ```
+
+* Or it's CSS style (using camelCase styles):
+
+  ```js
+  document.getElementById("demo").style.fontSize = "25px";
+  document.getElementById("demo").style.color = "red";
+  document.getElementById("demo").style.backgroundColor = "yellow";
+  ```
+
+* Or it's attributes:
+
+  ```js
+  document.getElementById("image").src = "picture.gif";
+  ```
+
+***
+
+One good practice is to create a `const` with the name of `id_tag` for each element that is going to be interacted with so yo don't have to keep writing `document.getElementById("demo")`
+
+```js
+const newQuote_button = document.getElementById("new-quote");
+```
+
+Now you can simply call `newQuote_buton`  (the element with a `new-quote` id is a `button`).
+
+***
+
