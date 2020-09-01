@@ -1,4 +1,41 @@
-#poop {
-  background-color: red;
-  vertical-align: middle;
+#viewport {
+  height: 100vh;
+}
+
+#container {
+  display: flex;
+  align-items: stretch;
+  margin: auto;
+  height: 90%;
+}
+
+#quote-box {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#author {
+  font-style: italic;
+}
+
+#new-quote {
+  margin: 10px;
+}
+
+#twitter {
+  font-size: 1.5em;
+  color: #1da1f2;
+  position: relative;
+  top: 4px;
+}
+
+#text {
+  font-size: 2em;
+  text-align: justify;
+}
+
+#brand {
+  margin-left: 20px;
 }

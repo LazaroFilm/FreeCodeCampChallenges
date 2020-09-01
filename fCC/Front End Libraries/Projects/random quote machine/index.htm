@@ -4,30 +4,57 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Random Quote Machine</title>
-    <!-- Bootstrap -->
+
+    <!-- Bootstrap Flatly: Light mode-->
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/flatly/bootstrap.min.css"
+      integrity="sha384-qF/QmIAj5ZaYFAeQcrQ6bfVMAh4zZlrGwTPY7T/M+iTTLJqJBJjwwnsE5Y0mV7QK"
+      crossorigin="anonymous"
+      media="(prefers-color-scheme: no-preference), (prefers-color-scheme: light)"
+    />
+    <!-- Bootstrap Darkly: Dark mode-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/darkly/bootstrap.min.css"
+      integrity="sha384-nNK9n28pDUDDgIiIqZ/MiyO3F4/9vsMtReZK39klb/MtkZI3/LtjSjlmyVPS3KdN"
+      crossorigin="anonymous"
+      media="(prefers-color-scheme: dark)"
+    />
+    <!-- Fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
       crossorigin="anonymous"
     />
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="./style.css" />
   </head>
   <body>
-    <div id="poop" class="container">
-      <div id="quote-box" class="jumbotron">
-        <p id="text">Text</p>
-        <p id="author">Author</p>
-        <a
-          id="tweet-quote"
-          href="https://twitter.com/intent/tweet?text=Hello!"
-          target="_blank"
-          >tweet this</a
-        >
-        <button id="new-quote" type="button" class="btn btn-primary">
-          "new quote"
-        </button>
+    <div id="viewport">
+      <header>
+        <nav class="navbar navbar-light bg-light">
+          <span id="brand" class="navbar-brand mb-0 h1"
+            >Random Quote Machine</span
+          >
+          <span>Cinematography edition</span>
+        </nav>
+      </header>
+      <div id="container" class="container-fluid">
+        <div id="quote-box" class="jumbotron">
+          <p id="text">Text</p>
+          <p id="author">Author</p>
+          <button id="new-quote" type="button" class="btn btn-primary">
+            new quote
+          </button>
+          <a
+            id="tweet-quote"
+            href="https://twitter.com/intent/tweet?text=Hello!"
+            target="_blank"
+            ><i id="twitter" class="fab fa-twitter"></i
+          ></a>
+        </div>
       </div>
     </div>
     <script src="randomQuote.js"></script>
