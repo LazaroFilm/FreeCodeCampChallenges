@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+}
+
+.MarkdownMachine {
+  display: flex;
+  justify-content: center;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.TextArea {
+  width: 40%;
+  padding: 10px 5px;
+  background-color: rgb(209, 215, 223);
+}
+
+.Preview {
+  text-align: left;
+  padding: 10px 5px;
+  border: 1px solid #767676;
+  width: 40%;
+  /* margin: 2.5%; */
+  background-color: rgb(209, 215, 223);
+}
