@@ -1,0 +1,6 @@
+.header {
+  display: flex;
+  /* background-color: blue; */
+  justify-content: center;
+  font-family: sans-serif;
+}
