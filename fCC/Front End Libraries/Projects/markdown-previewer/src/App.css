@@ -24,4 +24,5 @@
   width: 40%;
   /* margin: 2.5%; */
   background-color: rgb(209, 215, 223);
+  overflow: auto;
 }
