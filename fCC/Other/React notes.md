@@ -276,3 +276,15 @@ class DisplayMessages extends React.Component {
 
 ```
 
+
+
+`Super(props)` is deprecated, instead use this: 
+
+```jsx
+class DisplayMessages extends React.Component {
+  state = {
+      input: '',
+      messages: []
+    }
+```
+

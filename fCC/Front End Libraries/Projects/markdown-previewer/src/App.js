@@ -1,80 +1,80 @@
 import React, { Component } from "react";
 import "./App.css";
-import "./App.scss";
+import "./github-markdown.css";
 // import { Button } from "react-bootstrap";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value:
-        "# Header\n## Sub-header\n[fCC](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-markdown-previewer)\n`inline code`\n``` code block ```\n1. list item\n> Blockquote\n[img]:https://d33wubrfki0l68.cloudfront.net/2f7693e1933ac514c960f51ceae72c91c6716eb2/b2efd/img/fcc_primary_small.svg\n**Bold text**",
+  state = {
+    value:
+      "# Welcome to my React Markdown Previewer!\n\n## This is a sub-heading...\n### And here's some other cool stuff:\n  \nHeres some code, `<div></div>`, between 2 backticks.\n\n```\n// this is multi-line code:\n\nfunction anotherExample(firstLine, lastLine) {\n  if (firstLine == '```' && lastLine == '```') {\n    return multiLineCode;\n  }\n}\n```\n  \nYou can also make text **bold**... whoa!\nOr _italic_.\nOr... wait for it... **_both!_**\nAnd feel free to go crazy ~~crossing stuff out~~.\n\nThere's also [links](https://www.freecodecamp.com), and\n> Block Quotes!\n\nAnd if you want to get really crazy, even tables:\n\nWild Header | Crazy Header | Another Header?\n------------ | ------------- | ------------- \nYour content can | be here, and it | can be here....\nAnd here. | Okay. | I think we get it.\n\n- And of course there are lists.\n  - Some are bulleted.\n     - With different indentation levels.\n        - That look like this.\n\n\n1. And there are numbererd lists too.\n1. Use just 1s if you want! \n1. And last but not least, let's not forget embedded images:\n\n![React Logo w/ Text](https://techchronos.com/wp-content/uploads/SszarkLabs/stack-icon/cywBkaGwkMeDAuJbSt1k.png)\n",
+    markdowned: (
+      <div id="preview" className="Preview">
+        <p>Markdowned goes here</p>
+      </div>
+    ),
+  };
+
+  componentDidMount() {
+    this.setState({
       markdowned: (
-        <div>
-          <h1 id="header">Header</h1>
-          <h2 id="sub-header">Sub-header</h2>
-          <p>
-            <a href="https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-markdown-previewer">
-              fCC
-            </a>
-            <br />
-            <code>inline code</code>
-            <br />
-            <code>code block</code>
-          </p>
-          <ol>
-            <li>
-              list item
-              <blockquote>
-                <p>Blockquote </p>
-              </blockquote>
-            </li>
-          </ol>
-          <p>
-            <strong>Bold text</strong>
-          </p>
-        </div>
+        <div
+          id="preview"
+          className="Preview"
+          dangerouslySetInnerHTML={{
+            __html: window.marked(this.state.value, {
+              breaks: true,
+            }),
+          }}
+        />
       ),
-    };
+    });
   }
 
   handleChange = (event) => {
-    const marked = window.marked;
-    const mkdned = {
-      __html: window.marked(event.target.value, {
-        breaks: true,
-      }),
-    };
     this.setState({ value: event.target.value });
     this.setState({
-      markdowned: <div dangerouslySetInnerHTML={mkdned} />,
+      markdowned: (
+        <div
+          id="preview"
+          className="Preview"
+          dangerouslySetInnerHTML={{
+            __html: window.marked(event.target.value, {
+              breaks: true,
+            }),
+          }}
+        />
+      ),
     });
-    console.log(
-      marked(event.target.value, {
-        breaks: true,
-      })
-    );
   };
 
   render() {
     return (
       <div className="App">
         <div className="MarkdownMachine">
-          {/* prettier-ignore */}
-          <textarea
-            className="TextArea"
-            name="editor"
-            id="editor"
-            cols="50"
-            rows="20"
-            value={this.state.value}
-            onChange={this.handleChange}
-          >
-            
-            </textarea>
-          <div id="preview" className="Preview">
-            {this.state.markdowned}
-          </div>
+          <table className="two-tables">
+            <tbody>
+              <tr>
+                <th>Type things here:</th>
+                <th>And see them rendered here:</th>
+              </tr>
+              <tr>
+                <th className="two-columns">
+                  {/* prettier-ignore */}
+                  <textarea
+                className="TextArea"
+                name="editor"
+                id="editor"
+                cols="50"
+                rows="20"
+                value={this.state.value}
+                onChange={this.handleChange}
+                onLoad={this.handleChange}
+               />
+                </th>
+                <th>{this.state.markdowned}</th>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     );
