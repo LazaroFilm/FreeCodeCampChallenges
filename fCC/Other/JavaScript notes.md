@@ -140,6 +140,7 @@ str.join(" ");
 str.replace(/\W/, " ");
 str.toLowerCase(); //guess what this does...
 str.toUpperCase(); //I Mean, You Know...
+str.slice(0, -1); //removes the last character of the string
 ```
 
 ## JavaScript and HTML

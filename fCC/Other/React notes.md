@@ -232,7 +232,7 @@ Snippet `rcc` + <kbd>tab </kbd> create a Class Component Skeleton
 
 ---
 
-# React Example
+## React Example
 
 ```jsx
 class DisplayMessages extends React.Component {
@@ -288,3 +288,84 @@ class DisplayMessages extends React.Component {
     }
 ```
 
+# Hooks
+
+Hooks are a new way of using react intorduced in React 16.8. [more info](https://reactjs.org/docs/hooks-state.html) 
+
+## State Hooks
+
+With hooks, you don't use a `class` component and a `state` as before.
+
+Instead you use a `function` component. 
+
+``` jsx
+function Example () {
+  null;
+};
+```
+
+or
+
+```jsx
+const Example = () => {
+  null;
+};
+```
+
+Then you declare the state variable (you can also chose to import `{useState}` directly ).
+
+The function `useState` thakes one variable as the initial state and reutrns two variables. the first one `[0]` is the current state and the second one `[1]` is a function that updates the current state. 
+
+```jsx
+const [myVariable, setMyVariable] = React.useState(0);
+```
+
+Then inside your `return`, you can use `myVariable` to get the current state and `setMyVariable` to update the state:
+
+```jsx
+<p>The current state is {myVariable}</p>
+<button onClick = {() => setMyVariable(myVariable + 1)}>add one</button>
+// for incrementing.
+```
+
+or
+
+```jsx
+<p>The current state is {myVariable}</p>
+<button onClick = { () => setMyVariable([...myVariable, something])}></button>
+// for adding an item to an array (by using the ...spread operator).
+```
+
+### Example:
+
+```jsx
+import React from 'react';
+
+function myFunction() {
+  const [myVariable, setMyVariable] = React.useState(`initial state`);
+  
+  return (
+  <div>
+    <button onClick = {() => setMyVariable(`New Variable! the old one was ${myVariable}`)}
+	</div>
+  );
+}
+```
+
+## Effect Hook
+
+Effect Hooks replace `componentDidMount`, `componentDidUpdate`, `componentWillMount`
+
+Just like useEffect, you can import `{useEffect} from 'react'` or call `React.useEffect()`.
+
+Effect hooks are invoked with`useEffect()` and used to modify somthing that is not part of the DOM, like fetching data or calling an API, anything that doesn't involve directly modifying the UI. 
+
+## Other Hooks
+
+- `useReducer` basically replaces Redux.
+- `useCallback` 
+- `useMemo` 
+- `useRef` 
+- `useImperativeHandle` 
+- `useLayoutEffect` 
+- `useDebiugValue` 
